@@ -1,0 +1,10 @@
+CREATE TABLE link_sale (
+    link_sale_hashkey VARCHAR(32) PRIMARY KEY,
+    sale_hashkey VARCHAR(32) NOT NULL,
+    store_hashkey VARCHAR(32) NOT NULL,
+    product_hashkey VARCHAR(32) NOT NULL,
+    shipmode_hashkey VARCHAR(32) NOT NULL,
+    segment_hashkey VARCHAR(32) NOT NULL,
+    load_dts TIMESTAMP NOT NULL,
+    record_source VARCHAR(64) NOT NULL
+) DISTRIBUTED BY (link_sale_hashkey);
