@@ -38,12 +38,12 @@ cur = conn.cursor()
 # 0. DDL
 
 print("Creating tables...")
-
 for query in tqdm(os.listdir("scripts/sql")):
     if query.endswith(".sql"):
         with open(os.path.join("scripts/sql", query), "r") as f:
             cur.execute(f.read())
         conn.commit()
+print("Tables created.")
 
 # 1. Хабы
 stores = df[["Country", "City", "State", "Postal Code", "Region"]].drop_duplicates()
